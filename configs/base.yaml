@@ -1,0 +1,25 @@
+# English -> Persian Transformer, configuration used for the reported results.
+data:
+  fraction: 0.2          # fraction of the ParsiNLU training corpus used
+  seed: 42
+  vocab_size: 30000      # per language, including special tokens
+  min_freq: 2
+  length_percentile: 95  # sequence length cut-off
+fasttext:
+  en: vectors/cc.en.300.vec
+  fa: vectors/cc.fa.300.vec
+  trainable: false
+model:
+  embed_dim: 300
+  num_heads: 6
+  ff_dim: 1200
+  num_layers: 2
+  dropout: 0.1
+train:
+  batch_size: 64
+  epochs: 10
+  learning_rate: 1.0e-4
+  patience: 3
+eval:
+  max_samples: 2000
+  bertscore_model: HooshvareLab/bert-base-parsbert-uncased
